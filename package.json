@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-lark",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "",
 	"license": "MIT",
 	"homepage": "",
@@ -31,7 +31,12 @@
 		"n8nNodesApiVersion": 1,
 		"strict": true,
 		"credentials": [],
-		"nodes": []
+		"nodes": [
+			{
+				"name": "LarkApi.node.js",
+				"type": "dist/nodes/LarkApiNode/LarkApi.node.js"
+			}
+		]
 	},
 	"devDependencies": {
 		"@n8n/node-cli": "*",
@@ -42,5 +47,8 @@
 	},
 	"peerDependencies": {
 		"n8n-workflow": "*"
+	},
+	"dependencies": {
+		"axios": "^1.13.2"
 	}
 }
