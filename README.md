@@ -25,6 +25,16 @@ dist/          # Generated output from `npm run build`
 openspec/      # Project/process specs used for planning changes
 ```
 
+## Shared Services
+
+- `services/BaseService.ts` centralizes the Lark base URL (`https://open.larksuite.com`) and automatically injects the `tenant_access_token` (returned by the Authenticate node) as a `Bearer` header for every request.
+- `services/WikiService.ts` extends `BaseService` and exposes helpers such as:
+  - `createNode(spaceId, payload)` → `POST /open-apis/wiki/v2/spaces/:space_id/nodes`
+  - `getNodeInfo(nodeToken)` → `GET /open-apis/wiki/v2/spaces/get_node?token=<nodeToken>`
+  - `listChildNodes(spaceId, query)` → `GET /open-apis/wiki/v2/spaces/:space_id/nodes`
+  Each helper returns the raw Lark response body so nodes can adapt quickly.
+- Import from `services/index.ts` to keep consumer modules decoupled from file layout changes.
+
 ## NPM Scripts
 
 | Script | Purpose |
