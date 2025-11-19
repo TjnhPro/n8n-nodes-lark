@@ -15,7 +15,10 @@ export class LarkApi implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Lark API',
 		name: 'larkApi',
-		icon: 'file:lark.svg',
+		icon: {
+			light: 'file:../../icons/lark.svg',
+			dark: 'file:../../icons/lark.svg',
+		},
 		group: ['transform'],
 		version: 1,
 		description: 'Obtain tenant access tokens or call Base and Wiki APIs for Lark (Feishu)',
