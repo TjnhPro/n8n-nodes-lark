@@ -8,6 +8,18 @@ Typed n8n community nodes for Feishu/Lark. The goal is to expose common Lark adm
 - Node/credential implementations in progress (existing GitHub/Example scaffolds removed)
 - Target APIs: Tenant/ISV tokens, Messaging, Bitable, Approval, Calendar
 
+## Features
+
+- **Lark API Node**
+  - Authenticate: Exchange app credentials for tenant access tokens directly from the editor.
+  - Wiki: Create nodes, fetch node metadata, and list children inside a wiki space.
+  - Base (Bitable):
+    - App operations: create, copy, fetch, and rename Base apps.
+    - Table operations: create/batch create tables, rename, list, delete, and batch delete.
+    - Record operations: single create/update/search/delete plus batch create/update/get/delete with pagination controls.
+- Shared `BaseService` enforces the Lark base URL and authorization header so downstream services stay consistent.
+- `LarkBaseService` and `WikiService` expose typed helpers so node execution logic can stay focused on mapping inputs/outputs.
+
 ## Development Workflow
 
 1. Install deps: `npm install`

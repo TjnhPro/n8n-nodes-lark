@@ -69,6 +69,43 @@ export class BaseService {
 		});
 	}
 
+	protected async put<T = IDataObject>(
+		url: string,
+		data?: IDataObject,
+		config?: AxiosRequestConfig,
+	): Promise<AxiosResponse<T>> {
+		return this.request<T>({
+			method: 'PUT',
+			url,
+			data,
+			...(config ?? {}),
+		});
+	}
+
+	protected async patch<T = IDataObject>(
+		url: string,
+		data?: IDataObject,
+		config?: AxiosRequestConfig,
+	): Promise<AxiosResponse<T>> {
+		return this.request<T>({
+			method: 'PATCH',
+			url,
+			data,
+			...(config ?? {}),
+		});
+	}
+
+	protected async delete<T = IDataObject>(
+		url: string,
+		config?: AxiosRequestConfig,
+	): Promise<AxiosResponse<T>> {
+		return this.request<T>({
+			method: 'DELETE',
+			url,
+			...(config ?? {}),
+		});
+	}
+
 	protected handleRequestError(error: unknown): Error {
 		if (isAxiosError(error)) {
 			const responseData = (error.response?.data ?? {}) as IDataObject;
